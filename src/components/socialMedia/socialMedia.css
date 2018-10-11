@@ -1,0 +1,12 @@
+.social-media-container {
+  display: flex;
+}
+
+.social-media-card {
+  padding: 0 15px;
+}
+
+.social-media-card img {
+  border-radius: 100%;
+  height: 30px;
+}

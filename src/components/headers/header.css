@@ -1,0 +1,29 @@
+.header {
+  text-align: center;
+  padding: 40px 15px 0 15px;
+  border-bottom: 1px solid #e6e600;
+  background: linear-gradient(to bottom, #fff554, #fff447);
+}
+
+.header-title {
+  font-size: 25px;
+}
+
+.header > a {
+  color: black;
+  text-decoration: none;
+}
+
+.header > a > * {
+  margin-bottom: 40px;
+}
+
+.header-introduction > * {
+  margin-bottom: 20px;
+}
+
+.header-subtitle {
+  font-size: 15px;
+  font-weight: normal;
+  margin-top: 10px;
+}

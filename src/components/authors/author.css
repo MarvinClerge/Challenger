@@ -1,0 +1,34 @@
+.author {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px 0;
+}
+
+.author > * {
+  padding: 20px 0 5px 0;
+}
+
+.author-intro {
+  text-align: center;
+}
+
+.author-intro > img {
+  width: 150px;
+  border: 3px solid grey;
+  border-radius: 100%;
+}
+
+.author-content {
+  width: 70%;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.author-content > p {
+  padding: 5px 0;
+}
+
+.author-media {
+
+}
