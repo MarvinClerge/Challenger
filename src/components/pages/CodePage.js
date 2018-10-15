@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 import Header from '../headers/Header'
 import Footer from '../footers/Footer'
 import ChallengeDescription from '../challenges/ChallengeDescription'
+import Code from '../code/Code'
 
 class CodePage extends Component {
   render(){
@@ -11,6 +12,7 @@ class CodePage extends Component {
       <div className='home-page'>
         <Header small />
         <ChallengeDescription routerProps={this.props.routerProps}/>
+        <Code />
         <Footer />
       </div>
     )
