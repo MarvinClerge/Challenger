@@ -17,7 +17,9 @@ class App extends Component {
       <div className='app'>
         <Route path='/' exact component={HomePage} />
         <Route path='/challenges' exact component={ChallengePage} />
-        <Route path='/challenges/:id' exact component={CodePage} />
+        <Route path='/challenges/:id' exact render={routerProps =>
+          <CodePage routerProps={routerProps} />
+        }/>
         <Route path='/about' exact component={AboutPage} />
         {/* <Route path='/technology' exact component={TechnologyPage} /> */}
       </div>

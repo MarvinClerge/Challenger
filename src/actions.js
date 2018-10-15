@@ -38,3 +38,19 @@ export const challengesFetch = () => {
     })
   }
 }
+
+function challengeAction(payload){
+  return {
+    type: "CHALLENGE",
+    payload: payload
+  }
+}
+
+export const challengeFetch = (id) => {
+  return dispatch => {
+    Adapter.getChallenge(id)
+    .then(response => {
+      return dispatch(challengeAction(response.challenge))
+    })
+  }
+}

@@ -1,9 +1,4 @@
 class Adapter {
-  static getChallenges(){
-    return fetch('http://localhost:3001/api/v1/challenges')
-      .then(response => response.json())
-  }
-
   static login(payload){
     return fetch('http://localhost:3001/api/v1/login', {
       method: "POST",
@@ -45,6 +40,16 @@ class Adapter {
         'Authorization': localStorage.getItem('token')
       }
     })
+    .then(response => response.json())
+  }
+
+  static getChallenges(){
+    return fetch('http://localhost:3001/api/v1/challenges')
+      .then(response => response.json())
+  }
+
+  static getChallenge(index){
+    return fetch(`http://localhost:3001/api/v1/challenge/${index}`)
     .then(response => response.json())
   }
 }

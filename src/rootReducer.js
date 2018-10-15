@@ -1,6 +1,7 @@
 let initalState = {
   user: null,
-  challenges: []
+  challenges: [],
+  challenge: null
 }
 
 export default function rootReducer(state = initalState, action){
@@ -18,6 +19,11 @@ export default function rootReducer(state = initalState, action){
     case "CHALLENGES":
       return Object.assign({} , state, {
         challenges: action.payload
+      })
+
+    case "CHALLENGE":
+      return Object.assign({}, state, {
+        challenge: action.payload
       })
 
     default:

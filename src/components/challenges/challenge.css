@@ -69,3 +69,26 @@
 .challenge a:hover {
   color: #666600;
 }
+
+/* Challenge description content */
+
+.challenge-description {
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  background: #dbdbdb;
+}
+
+.challenge-description-header {
+  display: flex;
+  padding: 5px 0;
+}
+
+.challenge-description-header > div:nth-child(1) {
+  border-right: 1px solid black;
+}
+
+.challenge-description-header > div {
+  margin-right: 5px;
+  padding-right: 5px;
+}
