@@ -54,3 +54,43 @@ export const challengeFetch = (id) => {
     })
   }
 }
+
+function userChallenge(payload){
+  return {
+    type: "USER_CHALLENGE",
+    payload: payload
+  }
+}
+
+export const userChallengeFetch = (userId, challengeId) => {
+  return dispatch => {
+    Adapter.getUserChallenge(userId, challengeId)
+    .then(response => {
+      if (response.user_challenge) {
+        return dispatch(userChallenge(response.user_challenge))
+      } else {
+        return dispatch(userChallenge(null))
+      }
+    })
+  }
+}
+
+function createUserChallenge(payload){
+  return {
+    type: "USER_CHALLENGE",
+    payload: payload
+  }
+}
+
+export const createUserChallengeFetch = (userId, challengeId) => {
+  return dispatch => {
+    Adapter.createUserChallenge(userId, challengeId)
+    .then(response => {
+      if (response.user_challenge) {
+        return dispatch(createUserChallenge(response.user_challenge))
+      } else {
+        return dispatch(createUserChallenge(null))
+      }
+    })
+  }
+}

@@ -11,8 +11,8 @@ class CodePage extends Component {
     return(
       <div className='home-page'>
         <Header small />
-        <ChallengeDescription routerProps={this.props.routerProps}/>
-        <Code />
+        <ChallengeDescription routerProps={this.props.routerProps} />
+        <Code routerProps={this.props.routerProps} />
         <Footer />
       </div>
     )

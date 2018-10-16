@@ -52,6 +52,31 @@ class Adapter {
     return fetch(`http://localhost:3001/api/v1/challenge/${index}`)
     .then(response => response.json())
   }
+
+  static getUserChallenge(userId, challengeId){
+    const url = 'http://localhost:3001/api/v1/user_challenge/'
+    const params = `?user_id=${userId}&challenge_id=${challengeId}`
+
+    return fetch(url + params)
+    .then(response => response.json())
+  }
+
+  static createUserChallenge(userId, challengeId){
+    return fetch('http://localhost:3001/api/v1/complete/', {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+        'Accepts': 'application/json'
+      },
+      body: JSON.stringify({
+        user_challenge: {
+          user_id: userId,
+          challenge_id: challengeId
+        }
+      })
+    })
+    .then(response => response.json())
+  }
 }
 
 export default Adapter;

@@ -1,0 +1,22 @@
+.code-controller {
+  display: grid;
+  grid-template-columns: 80% 20%;
+  background: #e8e8e8;
+  border-top: 1px solid #c4c4c4;
+}
+
+
+.test-button {
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.like-button > img{
+  border-radius: 100px;
+}
+
+.code-controller > button {
+  margin: 10px 10px;
+  background: none;
+  border: none;
+}
