@@ -25,11 +25,6 @@ const ChallengeCard = props => {
             <img src={require('./trophy.png')} alt='trophy' />
             <p>{props.user_challenges}</p>
           </div>
-
-          <div className='challenge-card-stat'>
-            <img src={require('./heart.png')} alt='heart' />
-            <p>{props.likes}</p>
-          </div>
         </div>
       </div>
 
