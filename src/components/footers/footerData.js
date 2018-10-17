@@ -13,9 +13,9 @@ const footerData = [
     link: 'https://www.linkedin.com/in/marvinclerge/'
   },{
     text: 'Github',
-    link: 'https://github.com/MarvinClerge?tab=repositories'
+    link: 'https://github.com/MarvinClerge/Challenger'
   },{
-    text: 'Email Me',
+    text: 'Email',
     link: 'mailto:clergemarvin@gmail.com'
   }
 ]
