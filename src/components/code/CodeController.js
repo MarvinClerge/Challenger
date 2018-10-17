@@ -36,7 +36,7 @@ class CodeController extends Component {
           // Create a new instance in the database if one does not exist.
           if (!this.props.userChallenge) {
             let userId = this.props.user.id
-            let challengeId = this.props.routerProps.match.params.id
+            let challengeId = parseInt(this.props.routerProps.match.params.id)
 
             this.props.createUserChallenge(userId, challengeId)
           }
@@ -56,7 +56,7 @@ class CodeController extends Component {
   }
 
   renderTrophy = () => {
-    if (this.state.passed) {
+    if (this.state.passed || this.props.userChallenge) {
       return <img
         src={require('../challenges/trophy.png')} alt='trophy'/>
     } else {
@@ -65,12 +65,16 @@ class CodeController extends Component {
     }
   }
 
-  render(){
+  initalPassed = () => {
     if (!this.state.passed && this.props.userChallenge) {
       this.setState({
         passed: true
       })
     }
+  }
+
+  render(){
+    // this.initalPassed()
 
     return(
       <div className='code-controller'>

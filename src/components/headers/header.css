@@ -27,3 +27,9 @@
   font-weight: normal;
   margin-top: 10px;
 }
+
+.header-account {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}

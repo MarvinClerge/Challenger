@@ -21,6 +21,41 @@ export const loginFetch = input => {
   }
 }
 
+export const signupFetch = input => {
+  return dispatch => {
+    Adapter.signup(input)
+    .then(response => {
+      if (response.user) {
+        localStorage.setItem('token', response.token)
+        dispatch(loginAction(response.user))
+      } else {
+        alert(response.error)
+      }
+    })
+  }
+}
+
+export const currentUserFetch = token => {
+  return dispatch => {
+    Adapter.currentUser(token)
+    .then(response => {
+      console.log(response);
+      if (response.user) {
+        dispatch(loginAction(response.user))
+      } else {
+        alert("There was an error loggin you in.")
+      }
+    })
+  }
+}
+
+export function logout(){
+  localStorage.removeItem('token')
+  return {
+    type: "LOGOUT"
+  }
+}
+
 function challengesAction(payload){
   return {
     type: "CHALLENGES",

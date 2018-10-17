@@ -31,9 +31,8 @@ class Adapter {
     .then(response => response.json())
   }
 
-  static getUser(){
-    return fetch('http://localhost:3001/api/v1/challenges', {
-      method: "POST",
+  static currentUser(){
+    return fetch('http://localhost:3001/api/v1/current', {
       headers: {
         'Content-Type': 'application/json',
         'Accepts': 'application/json',

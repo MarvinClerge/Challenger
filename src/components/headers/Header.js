@@ -1,5 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { logout, currentUserFetch } from '../../actions'
 
 import './header.css'
 
@@ -33,8 +36,32 @@ const Header = props => {
     }
   }
 
+
+  function renderLogin(){
+    if (!props.small && props.user) {
+      return(
+        <Link to='/' className='header-account' onClick={(event)=>props.logout()}>
+          logout
+        </Link>
+      )
+    } else if (!props.small) {
+      return(
+        <Link to='/account' className='header-account'>
+          signup
+        </Link>
+      )
+    }
+  }
+
+  const token = localStorage.getItem('token')
+  if (!!token && !props.user) {
+    props.currentUser(token)
+  }
+
   return(
     <div className='header'>
+      {renderLogin()}
+
       <Link to='/'>
         <h3>
           <p className='header-title'>JavaScript</p>
@@ -48,4 +75,17 @@ const Header = props => {
   )
 }
 
-export default Header;
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators({
+    logout: logout,
+    currentUser: currentUserFetch
+  }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
