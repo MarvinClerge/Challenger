@@ -10,11 +10,10 @@ class CodeController extends Component {
   }
 
   componentDidMount(){
+    // console.log(this.props);
     if (this.props.user) {
       let userId = this.props.user.id
-      let challengeId = this.props.routerProps.match.params.id
-
-      this.props.getUserChallenge(userId, challengeId)
+      this.props.getUserChallenge(userId, this.props.challengeId)
     }
   }
 
@@ -36,13 +35,13 @@ class CodeController extends Component {
           // Create a new instance in the database if one does not exist.
           if (!this.props.userChallenge) {
             let userId = this.props.user.id
-            let challengeId = parseInt(this.props.routerProps.match.params.id)
+            let challengeId = this.props.challengeId
 
             this.props.createUserChallenge(userId, challengeId)
           }
 
         } else {
-          alert("Test Passed\nPlease log in to save results")
+          alert("Test Passed!\nPlease log in to save results.")
         }
 
         this.setState({
@@ -65,16 +64,11 @@ class CodeController extends Component {
     }
   }
 
-  initalPassed = () => {
-    if (!this.state.passed && this.props.userChallenge) {
-      this.setState({
-        passed: true
-      })
-    }
-  }
-
   render(){
-    // this.initalPassed()
+    if (this.props.user && !this.props.userChallenge) {
+      let userId = this.props.user.id
+      this.props.getUserChallenge(userId, this.props.challengeId)
+    }
 
     return(
       <div className='code-controller'>
@@ -82,9 +76,9 @@ class CodeController extends Component {
           Test Code
         </button>
 
-        <button className='like-button'>
+        <div className='trophy-button'>
           {this.renderTrophy()}
-        </button>
+        </div>
       </div>
     )
   }
@@ -93,7 +87,6 @@ class CodeController extends Component {
 const mapStateToProps = state => {
   return({
     user: state.user,
-    challenge: state.challenge,
     userChallenge: state.userChallenge
   })
 }

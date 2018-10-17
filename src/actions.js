@@ -39,7 +39,6 @@ export const currentUserFetch = token => {
   return dispatch => {
     Adapter.currentUser(token)
     .then(response => {
-      console.log(response);
       if (response.user) {
         dispatch(loginAction(response.user))
       } else {

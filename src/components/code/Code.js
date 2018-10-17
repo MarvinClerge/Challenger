@@ -9,12 +9,12 @@ import CodeController from './CodeController'
 
 class Code extends Component {
   state = {
-    codeContent: ""
+    content: this.props.challenge.content
   }
 
-  onChange = (event) => {
+  onChange = (input) => {
     this.setState({
-      codeContent: event
+      content: input
     })
   }
 
@@ -25,14 +25,18 @@ class Code extends Component {
           mode='javascript'
           theme='github'
           onChange={this.onChange}
-          value={this.state.codeContent}
+          value={this.state.content}
           width='100vw'
           fontSize="16px"
+          focus={true}
+          wrapEnabled={true}
+          editorProps={{$blockScrolling: Infinity}}
         />
 
         <CodeController
-          code={this.state.codeContent}
-          routerProps={this.props.routerProps}
+          code={this.state.content}
+          challenge={this.props.challenge}
+          challengeId={this.props.challengeId}
         />
       </div>
     )

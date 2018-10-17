@@ -3,8 +3,8 @@ const footerData = [
     text: 'About',
     link: '/about'
   },{
-    text: 'Technology',
-    link: '/technology'
+    text: 'Twitter',
+    link: 'https://twitter.com/MarvinClerge'
   },{
     text: 'Blog',
     link: 'https://medium.com/@clergemarvin'
