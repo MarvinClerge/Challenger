@@ -93,3 +93,24 @@
   margin-right: 5px;
   padding-right: 5px;
 }
+
+@media all and (min-width: 800px) {
+  .challenge {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .challenge > p {
+    width: 100%;
+  }
+
+  .challenge > div {
+    width: 40%;
+    max-width: 400px;
+  }
+
+  .challenge > a {
+    width: 80%;
+  }
+}

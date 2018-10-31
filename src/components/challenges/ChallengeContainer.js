@@ -24,7 +24,7 @@ class ChallengeContainer extends Component {
   renderChallenges = () => {
     let challenges = []
     if (this.props.preview) {
-      challenges = this.props.challenges.slice(0,5)
+      challenges = this.props.challenges.slice(0,6)
     } else {
       challenges = this.props.challenges
     }
