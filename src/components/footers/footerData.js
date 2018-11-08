@@ -13,7 +13,7 @@ const footerData = [
     link: 'https://www.linkedin.com/in/marvinclerge/'
   },{
     text: 'Github',
-    link: 'https://github.com/MarvinClerge/Challenger'
+    link: 'https://github.com/MarvinClerge'
   },{
     text: 'Email',
     link: 'mailto:clergemarvin@gmail.com'
