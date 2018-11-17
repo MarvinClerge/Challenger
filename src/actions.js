@@ -1,5 +1,6 @@
-import Adapter from './adapter'
+import Adapter from './adapter' // Used to communicate with Rails backend
 
+// Call LOGIN reducer with user information from loginFetch
 function loginAction(payload){
   return {
     type: "LOGIN",
@@ -7,6 +8,9 @@ function loginAction(payload){
   }
 }
 
+// Atempt user verifcation using name and password on Rails backend
+// Success: Call loginAction with user information and set token
+// Failure: Browser alert with Rails message
 export const loginFetch = input => {
   return dispatch => {
     Adapter.login(input)
@@ -21,6 +25,9 @@ export const loginFetch = input => {
   }
 }
 
+// Atempt user creation using name, password, and email
+// Success: Call loginAction with user information and set token
+// Failure: Browser alert with Rails message
 export const signupFetch = input => {
   return dispatch => {
     Adapter.signup(input)
@@ -35,6 +42,9 @@ export const signupFetch = input => {
   }
 }
 
+// When a token exists find the user in Rails with token
+// Success: Call loginAction with user information
+// Failure: Browser alert with Rails message
 export const currentUserFetch = token => {
   return dispatch => {
     Adapter.currentUser(token)
@@ -42,12 +52,13 @@ export const currentUserFetch = token => {
       if (response.user) {
         dispatch(loginAction(response.user))
       } else {
-        alert("There was an error loggin you in.")
+        alert("There was an error automatically logging you in.")
       }
     })
   }
 }
 
+// Call LOGOUT reducer and remove token
 export function logout(){
   localStorage.removeItem('token')
   return {
@@ -55,6 +66,7 @@ export function logout(){
   }
 }
 
+// Call CHALLENGES reducer with challenges information
 function challengesAction(payload){
   return {
     type: "CHALLENGES",
@@ -62,6 +74,7 @@ function challengesAction(payload){
   }
 }
 
+// Recieve all challenges from Rails backend
 export const challengesFetch = () => {
   return dispatch => {
     Adapter.getChallenges()
@@ -73,6 +86,7 @@ export const challengesFetch = () => {
   }
 }
 
+// Call CHALLENGE reducer to set single challenge
 function challengeAction(payload){
   return {
     type: "CHALLENGE",
@@ -80,6 +94,7 @@ function challengeAction(payload){
   }
 }
 
+// Recieve one challenge from Rails backend by id
 export const challengeFetch = (id) => {
   return dispatch => {
     Adapter.getChallenge(id)
@@ -89,6 +104,7 @@ export const challengeFetch = (id) => {
   }
 }
 
+// Call USER_CHALLENGE reducer
 function userChallenge(payload){
   return {
     type: "USER_CHALLENGE",
@@ -96,6 +112,7 @@ function userChallenge(payload){
   }
 }
 
+// Call userChallenge unless Rails failed to create association
 export const userChallengeFetch = (userId, challengeId) => {
   return dispatch => {
     Adapter.getUserChallenge(userId, challengeId)
@@ -109,6 +126,7 @@ export const userChallengeFetch = (userId, challengeId) => {
   }
 }
 
+// Call USER_CHALLENGE reducer
 function createUserChallenge(payload){
   return {
     type: "USER_CHALLENGE",
@@ -116,6 +134,7 @@ function createUserChallenge(payload){
   }
 }
 
+// Create user_challenge in Rails backend then call createUserChallenge
 export const createUserChallengeFetch = (userId, challengeId) => {
   return dispatch => {
     Adapter.createUserChallenge(userId, challengeId)
