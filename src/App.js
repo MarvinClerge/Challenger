@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-
-import { Route } from 'react-router-dom'
+import { Route } from 'react-router-dom' // Used to manage app navigation
 
 import './App.css';
 
@@ -13,6 +12,7 @@ import AuthPage from './components/pages/AuthPage'
 
 class App extends Component {
 
+  // Display component based on what page the user is currently on
   render() {
     return (
       <div className='app'>
