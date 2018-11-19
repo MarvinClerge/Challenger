@@ -11,8 +11,6 @@ The goal of this web application was to create a website that would allow users 
 Used to create frontend, manage application state, user interface, DOM manipulation, and fetching data from backend API.
 #### Ruby on Rails
 Used to create backend JSON API.
-#### PostgreSQL
-Used to store and manage user information.
 #### AceEditor
 Used for live syntax checking and highlighting of JavaScript code.
 #### JS-Interpreter
